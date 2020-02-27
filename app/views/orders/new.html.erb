@@ -1,0 +1,24 @@
+<h1>Create a New Order</h1>
+
+<% if flash[:errors] %>
+  <ul>
+    <% flash[:errors].each do |err_message| %>
+      <%= err_message %>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @order do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :customer_id %>
+  <%= f.collection_select :customer_id, @customers, :id, :name %>
+
+  <%= f.label :bubble_tea_id %>
+  <%= f.collection_select :bubble_tea_id, @bubble_teas, :id, :tea_type %>
+
+  <%= f.submit %>
+
+<% end %>

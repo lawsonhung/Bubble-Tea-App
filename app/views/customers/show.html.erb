@@ -1,0 +1,45 @@
+<!-- <h1>Customers#show</h1>
+<p>Find me in app/views/customers/show.html.erb</p> -->
+<h1>Information About Customer <%= @customer.name %> </h1>
+
+<%= button_to "Go back to See All the Customers in Line!", customers_path, method: :get %>
+
+<%= button_to "Hack This Customer #{@customer.name} (Edit)", edit_customer_path(@customer), method: :get %>
+
+<%= button_to "Give This Customer Diabetes >:)", customer_path(@customer), method: :delete %>
+
+<p>
+  <%= @customer.name %> says...
+</p>
+
+<p>
+  <%= @customer.quote %>
+</p>
+
+
+
+<h2>Create a New Order</h2>
+
+<%= form_for @order do |f| %>
+
+  <%= f.hidden_field :customer_id, value: @customer.id %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :bubble_tea_id %>
+  <%= f.collection_select(:bubble_tea_id, @bubble_teas, :id, :tea_type) %>
+
+  <%= f.submit %>
+
+<% end %>
+
+
+
+<h2>All the Orders for <%= @customer.name %> </h2>
+
+<% @customer.orders.each do |order| %>
+
+  <%= order.name %> - <%= button_to "#{order.bubble_tea.tea_type} tea is the type of tea associated with this order", bubble_tea_path(order.bubble_tea), method: :get %>
+
+<% end %>

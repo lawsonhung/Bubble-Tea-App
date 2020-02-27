@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tea_type: MyString
+  boba: false
+  sugar_level: 1.5
+
+two:
+  tea_type: MyString
+  boba: false
+  sugar_level: 1.5

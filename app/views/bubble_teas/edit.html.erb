@@ -1,0 +1,28 @@
+<h1>Edit Your Bubble Tea</h1>
+
+<!-- <h1>BubbleTeas#edit</h1>
+<p>Find me in app/views/bubble_teas/edit.html.erb</p> -->
+
+<% if flash[:errors] %>
+  <ul>
+    <% flash[:errors].each do |err_message| %>
+      <li>
+        <%= err_message %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @bubble_tea do |bbt| %>
+   <%# add collection_select(:bubble_tea_id, @bubble_teas, :id, :text_to_show_here)%>
+  <%= bbt.label :tea_type %>
+  <%= bbt.text_field :tea_type %>
+
+  <%= bbt.label :boba %>
+  <%= bbt.check_box :boba %>
+
+  <%= bbt.label :sugar_level %>
+  <%= bbt.number_field :sugar_level, step: :any %>
+
+  <%= bbt.submit %>
+<% end %>

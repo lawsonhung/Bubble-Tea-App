@@ -1,0 +1,26 @@
+<h1>Show a Bubble Tea Order</h1>
+
+<!-- <h1>BubbleTeas#show</h1>
+<p>Find me in app/views/bubble_teas/show.html.erb</p> -->
+<%# <%= link_to "Go Back to All your Bubble Tea Orders", bubble_teas_path %>
+<%= button_to "Go Back to All Your Bubble Teas", bubble_teas_path, method: :get %>
+<%# <%= link_to "Edit This Bubble Tea Order", edit_bubble_tea_path(@bubble_tea) %>
+<%= button_to "Edit This Bubble Tea", edit_bubble_tea_path(@bubble_tea), method: :get %>
+
+<%= button_to "I don't want this bubble tea anymore :(", bubble_tea_path(@bubble_tea), method: :delete %>
+
+  <p>
+    Order Number: <%= @bubble_tea.id %>
+  </p>
+
+  <p>
+    Tea Type: <%= @bubble_tea.tea_type %>
+  </p>
+
+  <p>
+    Boba? <%= @bubble_tea.boba %>
+  </p>
+
+  <p>
+    Amount of Sugar? <%= @bubble_tea.sugar_level %>
+  </p>
